@@ -17,6 +17,7 @@ Understanding urban mobility patterns of cycling with bikeshare data.
 - [Python tools for geographic data](https://github.com/geopandas/geopandas).
 - [contextily: context geo tiles in Python](https://github.com/geopandas/contextily).
 - [Converting projected coordinates to lat/lon using Python](https://gis.stackexchange.com/questions/78838).
+- [APTA Ridership Trends: A new way to track changes in ridership](https://transitapp.com/APTA).
 
 <br>
 
