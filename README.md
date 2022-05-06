@@ -15,6 +15,8 @@ Understanding urban mobility patterns of cycling with bikeshare data.
 
 - [OSMnx: Python for street networks. Retrieve, model, analyze, and visualize street networks and other spatial data from OpenStreetMap.](https://github.com/gboeing/osmnx)
 - [Python tools for geographic data](https://github.com/geopandas/geopandas).
+- [contextily: context geo tiles in Python](https://github.com/geopandas/contextily).
+- [Converting projected coordinates to lat/lon using Python](https://gis.stackexchange.com/questions/78838).
 
 <br>
 
@@ -25,9 +27,12 @@ Understanding urban mobility patterns of cycling with bikeshare data.
 - [Analysis of Bike Share Ridership in Toronto](https://aunz.github.io/bikeshare/).
 - [Using Mobile Data to Understand Urban Mobility Patterns in Freetown, Sierra Leone](https://openknowledge.worldbank.org/handle/10986/35033). Technical Report.
 - [Biking provides a critical lifeline during the coronavirus crisis](https://www.wri.org/insights/biking-provides-critical-lifeline-during-coronavirus-crisis).
+- [A brief analysis of BIXI Montreal’s e-bikes](https://platial.science/a-brief-analysis-of-bixi-e-bike-trips/).
+- [Understanding BIXI Commuters: An Analysis of Montreal’s Bike Share System in Python](https://towardsdatascience.com/understanding-bixi-commuters-an-analysis-of-montreals-bike-share-system-in-python-cb34de0e2304).
 
-<br />
+<br>
 
+- [Quantifying spatial homogeneity of urban road networks via graph neural networks](https://arxiv.org/pdf/2101.00307.pdf).
 - [A data science framework for planning the growth of bicycle infrastructures](https://doi.org/10.1016/j.trc.2020.102640). Transportation Research Part C: Emerging Technologies, 2020.
 - [Understanding vehicular routing behavior with location-based service data](https://doi.org/10.1140/epjds/s13688-021-00267-w). EPJ Data Science, 2021.
 - Beda Büchel, Alessio Daniele Marra, Francesco Corman (2021). [COVID-19 as a window of opportunity for cycling: Evidence from the first wave](https://doi.org/10.1016/j.tranpol.2021.12.003). Transport Policy, 116: 144-156.
