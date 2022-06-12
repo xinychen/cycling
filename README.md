@@ -5,7 +5,7 @@ Understanding urban mobility patterns of cycling with bikeshare data.
 
 ## Content
 
-1. **Processing open data from some bikeshare systems**, e.g., [Bixi (Montreal)](https://bixi.com/en/open-data), [Citi Bike (NYC)](https://ride.citibikenyc.com/system-data), [Mobi (Vancouver)](https://www.mobibikes.ca/en/system-data).
+1. **Processing open data from some bikeshare systems**, e.g., [Bixi (Montreal)](https://bixi.com/en/open-data), [Citi Bike (NYC)](https://ride.citibikenyc.com/system-data), [Mobi (Vancouver)](https://www.mobibikes.ca/en/system-data), [Bikeshare in Toronto](https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/).
    - Extract and aggregate data to facilitate analysis.
 2. **Identifying mobility pattern changes before and during the COVID-19 pandemic** (e.g., overall decrease in car traffic, assessment of mobility preference over cycling and other transport modes, recognition of bike commuting, evidence of cycling duration and distance changes).
 
