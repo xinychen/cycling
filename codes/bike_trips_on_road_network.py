@@ -76,7 +76,6 @@ for i in range(4):
     else:
         geo_df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 25000, zorder = 52)
     ax.set(xlim = [293600, 302600], ylim = [5033000, 5049000])
-    plt.title('20{}'.format(18 + i))
     plt.xticks([])
     plt.yticks([])
     for _, spine in ax.spines.items():
