@@ -8,6 +8,7 @@ from shapely.geometry import Point
 plt.rcParams['font.size'] = 12
 fig = plt.figure(figsize = (15, 11))
 fig.subplots_adjust(hspace = 0, wspace = 0)
+montreal = gpd.read_file('geobase_mtl.shp')
 territories = gpd.read_file('quartier_limite.shp')
 
 inProj = Proj(init = 'epsg:32188')
@@ -52,14 +53,21 @@ for i in range(4):
     ## Create the `.shp` file of bikeshare stations and cover the bike trips
     geometry = [Point(xy) for xy in zip(data['latitude'], data['longitude'])]
     geo_df = gpd.GeoDataFrame(data, crs = {'init': 'epsg:32188'}, geometry = geometry)
-    gdf = gpd.sjoin(geo_df, territories, op = 'contains').groupby('name').sum()
+    df = gpd.sjoin(territories, geo_df)
+    df = df.groupby(['ARROND'])['count'].sum()
+    df = df.reset_index()
+    geo = list()
+    for area in df['ARROND']:
+        geo.append(territories.geometry[territories['ARROND'] == area].reset_index().geometry[0])
+    df = gpd.GeoDataFrame(df, geometry = geo)
     
     ## Plot the bike trips on the road network
+    territories.plot(color = 'white', edgecolor = 'gray', ax = ax)
     if i == 3:
-        gdf.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 25000, 
+        df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 5e+5, 
                     zorder = 52, legend = True, legend_kwds = {'shrink': 0.5, 'label': 'Number of trips'})
     else:
-        gdf.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 25000, zorder = 52)
+        df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 5e+5, zorder = 52)
     ax.set(xlim = [287000, 305500], ylim = [5030000, 5063000])
     plt.title('20{}'.format(18 + i))
     plt.xticks([])
@@ -68,17 +76,17 @@ for i in range(4):
         spine.set_visible(True)
     
     ## Zoom in the road network
-#     ax = fig.add_subplot(2, 4, i + 5)
-#     if i == 3:
-#         geo_df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 25000, 
-#                     zorder = 52, legend = True, legend_kwds = {'shrink': 0.5, 'label': 'Number of trips'})
-#     else:
-#         geo_df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 25000, zorder = 52)
-#     ax.set(xlim = [293600, 302600], ylim = [5033000, 5049000])
-#     plt.title('20{}'.format(18 + i))
-#     plt.xticks([])
-#     plt.yticks([])
-#     for _, spine in ax.spines.items():
-#         spine.set_visible(True)
+    ax = fig.add_subplot(2, 4, i + 5)
+    territories.plot(color = 'white', edgecolor = 'gray', ax = ax)
+    if i == 3:
+        df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 5e+5, 
+                    zorder = 52, legend = True, legend_kwds = {'shrink': 0.5, 'label': 'Number of trips'})
+    else:
+        df.plot('count', cmap = 'Reds', ax = ax, markersize = 15, vmin = 0, vmax = 5e+5, zorder = 52)
+    ax.set(xlim = [293600, 302600], ylim = [5033000, 5049000])
+    plt.xticks([])
+    plt.yticks([])
+    for _, spine in ax.spines.items():
+        spine.set_visible(True)
 fig.savefig("bikeshare_pickup_trips_territories.png", bbox_inches = "tight")
 plt.show()
