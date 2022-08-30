@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from pyproj import Proj
 from shapely.geometry import Point
 
-fig = plt.figure(figsize = (15, 10))
+fig = plt.figure(figsize = (15, 5))
 montreal = gpd.read_file("geobase_mtl.shp")
 
 inProj = Proj(init='epsg:32188')
 for i in range(4):
-    ax = fig.add_subplot(2, 4, i + 1)
+    ax = fig.add_subplot(1, 4, i + 1)
     montreal.plot(ax = ax, color = 'gray', linewidth = 0.3)
     if i == 0:
         data = pd.read_csv('OD_2018-04.csv')
